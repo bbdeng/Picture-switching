@@ -1,0 +1,51 @@
+﻿<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>切图</title>
+        <link rel="stylesheet" type="text/css" href="css/page-index.css">
+        <script>
+            window.onload=function () {
+                var pre=document.getElementById("previous");
+                var next=document.getElementById("next");
+				var img=document.getElementsByTagName("img")[0];
+				var imgArr=["img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg","img/5.jpg"];
+				var index=0;
+				var p=document.getElementsByTagName("p")[0];
+					p.innerHTML="一共"+ imgArr.length +"张图片"+",当前第"+ (index+1) +"张。"
+                pre.onclick=function () {
+                    index--;
+                    
+                    if(index<0){
+                    	index=imgArr.length-1;
+                    };
+                    img.src=imgArr[index];
+                    p.innerHTML="一共"+ imgArr.length +"张图片"+",当前第"+ (index+1) +"张。"
+                };
+                next.onclick=function () {
+                    index++;
+                    
+                    if(index>imgArr.length-1){
+                    	
+                    	index=0;
+                    };
+                    img.src=imgArr[index];
+                    p.innerHTML="一共"+ imgArr.length +"张图片"+",当前第"+ (index+1) +"张。"
+                };
+            };
+        </script>
+    </head>
+    <body>
+        <div id="picture">
+        	<p></p>
+            <img src="img/1.jpg" alt="冰棍" />
+            <button id="previous">上一张</button>
+            <button id="next">下一张</button>
+        </div>
+
+    </body>
+</html>
+
